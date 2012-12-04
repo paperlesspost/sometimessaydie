@@ -43,14 +43,6 @@ unless ["", ""] == sig_dirs
   LIB_DIRS.unshift sig_dirs[1]
 end
 
-unless find_header('sigsegv.h', *HEADER_DIRS)
-  abort "sigsegv is missing.  please install it."
-end
-
-unless find_library('sigsegv', 'sigsegv_install_handler', *LIB_DIRS)
-  abort "sigsegv is missing.  please install it."
-end
-
 create_makefile('neversaydie/neversaydie')
 
 # :startdoc:
